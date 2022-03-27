@@ -1,8 +1,9 @@
 //import { styled } from "styled-components";
+import { memo } from "react";
 import { Child2 } from "./Child2";
 import { Child3 } from "./Child3";
 
-export const Child1 = () => {
+export const Child1 = memo(() => {
 	console.log("Child1 レンダリング");
 	return (
 		<div>
@@ -12,4 +13,4 @@ export const Child1 = () => {
 		</div>
 	);
 
-};
+});

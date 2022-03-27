@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { Child1 } from "./components/Child1";
 import { Child4 } from "./components/Child4";
 
-const App = () => {
+const App = memo(() => {
   console.log("Appレンダリング");
   const [num, setNume] = useState(0);
 
@@ -18,5 +18,5 @@ const App = () => {
       <Child4 />
     </>
   );
-};
+});
 export default App;
