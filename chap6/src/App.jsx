@@ -6,6 +6,12 @@ const App = memo(() => {
   console.log("Appレンダリング");
   const [num, setNume] = useState(0);
 
+  // リセットボタン処理
+  const onClickReset = () => {
+    setNume(0);
+  };
+
+  // カウントアップボタン処理
   const onClickButton = () => {
     setNume(num + 1);
   };
@@ -14,7 +20,7 @@ const App = memo(() => {
     <>
       <button onClick={onClickButton}>ボタン</button>
       <p>{num}</p>
-      <Child1 />
+      <Child1 onClickReset={onClickReset} />
       <Child4 />
     </>
   );
