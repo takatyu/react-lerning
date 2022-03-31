@@ -1,4 +1,4 @@
-import { useState, memo } from 'react';
+import { useState, memo, useCallback } from 'react';
 import { Child1 } from "./components/Child1";
 import { Child4 } from "./components/Child4";
 
@@ -7,9 +7,9 @@ const App = memo(() => {
   const [num, setNume] = useState(0);
 
   // リセットボタン処理
-  const onClickReset = () => {
+  const onClickReset = useCallback(() => {
     setNume(0);
-  };
+  }, []);
 
   // カウントアップボタン処理
   const onClickButton = () => {
