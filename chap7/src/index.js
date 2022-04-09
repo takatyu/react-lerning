@@ -2,12 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { AdminFlagProvider } from "./components/providers/AdminFlagProvider"
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <AdminFlagProvider>
     <App />
-  </React.StrictMode>,
+  </AdminFlagProvider>,
   document.getElementById('root')
 );
 
