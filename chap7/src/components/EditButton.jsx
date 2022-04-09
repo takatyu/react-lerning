@@ -2,15 +2,12 @@ import { useContext } from "react";
 import { AdminFlagContext } from "./providers/AdminFlagProvider";
 import styled from "styled-components";
 
-export const EditButton = (props) => {
-	const { isAdmin } = props;
+export const EditButton = () => {
 	// useContextの引数に参照するContextを指定する
-	const contexValue = useContext(AdminFlagContext);
-	console.log(contexValue);
-	
+	const {isAdmin} = useContext(AdminFlagContext);
 	// isAdminがfalse(管理者以外)の場合、ボタンを非活性
 	return (
-		<SButton disabled={isAdmin}>編集</SButton>
+		<SButton disabled={!isAdmin}>編集</SButton>
 	);
 };
 

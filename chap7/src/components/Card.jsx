@@ -1,14 +1,14 @@
 import { EditButton } from "./EditButton";
 import styled from "styled-components";
 
-export const Card = (props) => {
+export const Card = () => {
 	//propsとして管理者フラグを受け取る
-	const { isAdmin } = props;
+	//const { isAdmin } = props;
 
 	return (
 		<SContainer>
 			<p>山田太郎</p>
-			<EditButton isAdmin={isAdmin}/>
+			<EditButton />
 		</SContainer>
 	);
 };
