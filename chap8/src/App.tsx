@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
-import {ListItem} from "./components/Listitems";
+import { ListItem } from "./components/ListItem";
 import axios from "axios";
+import type { User } from "./types/user";
 
-function App() {
+
+const App = () => {
   // 取得したユーザ
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState<User[]>([]);
 
   // 画面表示時にユーザ情報取得
   useEffect(() => {
-    axios.get("http://localhost:9000/").then((res) => {
+    axios.get<User[]>("http://localhost:9000/").then((res) => {
       setUsers(res.data);
     })
   }, []);
@@ -16,31 +18,10 @@ function App() {
   // 返却
   return (
     <div>
-      {users.map(user => (
-        <ListItem id={user.id} name={user.name} age={user.age} />
+      {users.map((user, index) => (
+        <ListItem key={index} id={user.id} name={user.name} age={user.age} personalColor={user.personalColor} />
       ))}
     </div>
   );
 }
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.tsx</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
 export default App;
