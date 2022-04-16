@@ -3,7 +3,6 @@ import { ListItem } from "./components/ListItem";
 import axios from "axios";
 import type { User } from "./types/user";
 
-
 const App = () => {
   // 取得したユーザ
   const [users, setUsers] = useState<User[]>([]);
