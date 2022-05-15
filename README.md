@@ -11,3 +11,4 @@ Reactで再レンダリングを的確に制御する。
 1. ContextでのState管理
 
 ## chapter8 ReactとTypeScript
+`yarn create react-app --template typescript memo-app`

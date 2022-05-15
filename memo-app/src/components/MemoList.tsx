@@ -1,4 +1,4 @@
-import { FC } from "react"
+import { FC, memo } from "react"
 import styled from "styled-components"
 
 type Props = {
@@ -7,8 +7,8 @@ type Props = {
 };
 
 // MemoListコンポーネント
-export const MemoList: FC<Props> = (props) => {
-
+export const MemoList: FC<Props> = memo((props) => {
+	console.log("MemoList");
 	const { todoList, deleteButton} =  props;
 
 	return (
@@ -28,7 +28,7 @@ export const MemoList: FC<Props> = (props) => {
         </ul>
       </SContainer>
 	);
-};
+});
 
 const SButton = styled.button`
   margin-left: 16px;

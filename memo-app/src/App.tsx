@@ -1,38 +1,24 @@
-import { useState, FC, useCallback } from "react";
+import { useState, FC } from "react";
 import styled from "styled-components"
 import { MemoList } from "./components/MemoList";
+import { useMemoList } from "./hooks/useMemoList";
 
 const App: FC = () => {
+  console.log("App");
   // 入力テキスト
-  const [text, setText] = useState<string>("");
-  // TodoList
-  const [todoList, setTodoList] = useState<string[]>([]);
-
-  // 追加ボタン
-  const addButton = () => {
-    if (text === "") return;
-    console.log("追加ボタン:" + text)
-    const todo = [...todoList];
-    todo.push(text)
-    setTodoList(todo);
-  };
-
-  const deleteButton = useCallback((index: number) => {
-    console.log(index);
-    const newTodo = [...todoList];
-    newTodo.splice(index, 1);
-    setTodoList(newTodo);
-  }, [todoList]);
+	const [text, setText] = useState<string>("");
+  // カスタムフックから取得
+  const { todoList, addButton, deleteButton  } = useMemoList();
 
   return (
     <div>
       <h1>簡単メモアプリ</h1>
       <input type="text" value={text} onChange={(e) => { setText(e.target.value) }} />
-      <SButton onClick={addButton}>追加</SButton>
+      <SButton onClick={() => { addButton(text) } }>追加</SButton>
       <MemoList todoList={todoList} deleteButton={deleteButton} />
     </div>
   );
-}
+};
 
 export default App;
 
